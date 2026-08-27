@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  --color-asphalt: #0f1115;
+  --color-panel: #171a21;
+  --color-panel-raised: #1f232c;
+  --color-edge: #2a2f3a;
+  --color-ink: #e7e9ee;
+  --color-ink-muted: #8a93a3;
+
+  --color-signal-amber: #f2b705;
+  --color-signal-amber-dim: #5a4708;
+  --color-signal-green: #4caf6d;
+  --color-signal-red: #e5484d;
+
+  --font-sans: var(--font-inter), sans-serif;
+  --font-mono: var(--font-mono), monospace;
+
+  --shadow-glow: 0 0 24px rgba(242, 183, 5, 0.25);
+}
+
+html,
+body {
+  background-color: #0f1115;
+  color: #e7e9ee;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Subtle scanline texture on the background, evocative of a monitor room
+   without being loud about it */
+.scan-texture {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.015) 0px,
+    rgba(255, 255, 255, 0.015) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.pulse {
+  animation: pulse-dot 1.4s ease-in-out infinite;
+}
+
+:focus-visible {
+  outline: 2px solid #f2b705;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse {
+    animation: none;
+  }
+}
